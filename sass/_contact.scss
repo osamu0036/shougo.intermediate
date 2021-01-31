@@ -1,0 +1,111 @@
+/* ----------------------------- */
+/* CONTACT */
+/* ----------------------------- */
+.contact-wrapper {
+  width: 100%;
+  background: transparent linear-gradient(90deg, #05a5fa 0%, #63fbd7 100%, #67ffd6 100%) 0% 0% no-repeat padding-box;
+  padding: 63px 2.5vw 70px;
+}
+
+.hp__white {
+  color: $color-white;
+}
+
+.contact-txt {
+  @include font-size(16);
+  line-height: 24px;
+  letter-spacing: 0px;
+  margin-top: 36px;
+}
+
+.form-wrapper {
+  width: 70%;
+  background-color: #fff;
+  margin: 0 auto;
+}
+
+.form-list {
+  padding: 34px 6.9% 0;
+}
+
+.input-label {
+  background: #eefbfb 0% 0% no-repeat padding-box;
+  width: 61.1%;
+  height: 43px;
+  display: block;
+  margin: 39px 0 27px;
+  padding: 0 10px;
+}
+
+.form-textarea {
+  background: #eefbfb 0% 0% no-repeat padding-box;
+  width: 100%;
+  height: 179px;
+  display: block;
+  margin: 39px 0 27px;
+  padding: 10px 10px;
+}
+
+.form-label {
+  display: block;
+}
+
+.form-checkbox {
+  padding-bottom: 44px;
+  text-align: center;
+}
+
+.privacy-check {
+  display: inline-block;
+}
+
+.privacy-txt {
+  display: inline-block;
+}
+
+.contact-btn {
+  margin-top: 30px;
+}
+
+.form-txt-label {
+  display: inline-block;
+  padding: 0 1.1em;
+  background-color: #0c449b;
+  border-radius: 10px;
+  color: $color-white;
+  @include font-size(14);
+  line-height: 26px;
+  margin-left: 23px;
+}
+
+.end-message {
+  display: none;
+  @include font-size(20);
+  text-align: right;
+  padding-bottom: 50px;
+}
+
+.false-message {
+  display: none;
+  @include font-size(20);
+  text-align: right;
+  color: red;
+}
+
+/* ----------------------------- */
+/* CONTACT-mq */
+/* ----------------------------- */
+@include mq(767px) {
+  .form-wrapper {
+    width: 100%;
+    margin: 0 auto;
+  }
+
+  .form-list {
+    padding: 34px 4vw 0;
+  }
+
+  .input-label {
+    width: 100%;
+  }
+}

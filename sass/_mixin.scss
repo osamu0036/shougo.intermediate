@@ -1,0 +1,163 @@
+// fontサイズをremに変換
+@mixin font-size($size, $base: 16) {
+  font-size: $size + px;
+  font-size: ($size / $base) + rem;
+}
+
+// メディアクエリ
+@mixin mq($max-width: 767px) {
+  @media screen and (max-width: $max-width) {
+    @content;
+  }
+}
+
+@mixin mq-m($min-width: 768px, $max-width: 1024px) {
+  @media screen and (min-width: $min-width) and (max-width: $max-width) {
+    @content;
+  }
+}
+
+// ハンバーガーメニュー
+// ハンバーガーボタン
+@mixin burger {
+  .button {
+    display: inline-block;
+    text-decoration: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+  }
+
+  .hamburger {
+    display: block;
+    position: fixed;
+    top: 23px;
+    right: 15px;
+    z-index: 5;
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    border: 3px solid $color01;
+    box-shadow: 0 0 2rem transparent;
+    outline: none;
+    -webkit-transition: all 0.3s ease-in-out;
+    transition: all 0.3s ease-in-out;
+    &:hover,
+    &:focus {
+      box-shadow: 0 0 0.5rem rgba(161, 161, 161, 0.5);
+    }
+  }
+
+  .hamburger__line {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    margin: auto;
+    width: 18px;
+    height: 2px;
+    background-color: $color01;
+    -webkit-transition: inherit;
+    transition: inherit;
+    &::before,
+    &::after {
+      position: absolute;
+      display: block;
+      width: 100%;
+      height: 100%;
+      background-color: inherit;
+      content: '';
+      -webkit-transition: inherit;
+      transition: inherit;
+    }
+  }
+
+  .hamburger__line::before {
+    top: -5px;
+  }
+  .hamburger__line::after {
+    top: 5px;
+  }
+  .hamburger[aria-expanded='true'] {
+    border: 2px solid #fff !important;
+  }
+  .hamburger[aria-expanded='true'] .hamburger__line {
+    background-color: transparent;
+    &::before,
+    &::after {
+      top: 0;
+      background-color: $color02;
+    }
+  }
+  .hamburger[aria-expanded='true'] .hamburger__line::before {
+    -webkit-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    transform: rotate(45deg);
+  }
+
+  .hamburger[aria-expanded='true'] .hamburger__line::after {
+    -webkit-transform: rotate(-45deg);
+    -ms-transform: rotate(-45deg);
+    transform: rotate(-45deg);
+  }
+
+  .hamburger-nav {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 4;
+  }
+}
+
+// フルスクリーンメニュー
+// メニュー
+@mixin burger-menu {
+  .drawer-background {
+    position: fixed;
+    z-index: 3;
+    width: 100vw;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    overflow: hidden;
+    height: 100vh;
+    background-color: #000;
+    color: #fff;
+    visibility: hidden;
+    opacity: 0;
+  }
+
+  .sp-global-menu {
+    position: fixed;
+    top: 0;
+    right: 0;
+    z-index: 4;
+    width: 300px;
+    transform: translateX(300px);
+    bottom: 0;
+    overflow: hidden;
+    height: 100vh;
+    background-color: #000;
+    color: #fff;
+    transition: 0.3s;
+  }
+
+  .is-drawerActive {
+    .sp-global-menu {
+      display: block;
+      visibility: visible;
+      transform: translateX(0px);
+      transition: 0.3s;
+    }
+    .drawer-background {
+      visibility: visible;
+      opacity: 0.8;
+      transition: 0.3s;
+    }
+  }
+}
